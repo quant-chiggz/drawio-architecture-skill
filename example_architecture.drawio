@@ -1,0 +1,207 @@
+<mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    
+    <!-- 标题 -->
+    <mxCell id="title" value="Qwen3-0.6B 本地文件搜索系统架构图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="400" y="30" width="500" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- 数据层 -->
+    <mxCell id="dl_bg" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;startSize=30;" vertex="1" parent="1">
+      <mxGeometry x="40" y="100" width="160" height="480" as="geometry"/>
+    </mxCell>
+    <mxCell id="dl_label" value="数据层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="dl_bg">
+      <mxGeometry x="0" y="-10" width="160" height="30" as="geometry"/>
+    </mxCell>
+    
+    <!-- 源数据目录 -->
+    <mxCell id="src_data" value="~/Desktop/志诚慧远" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;" vertex="1" parent="dl_bg">
+      <mxGeometry x="20" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <!-- 箭头1 -->
+    <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryPerimeter=0;strokeColor=#666666;" edge="1" parent="dl_bg" source="src_data" target="prepare">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    
+    <!-- prepare_data.py -->
+    <mxCell id="prepare" value="prepare_data.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;" vertex="1" parent="dl_bg">
+      <mxGeometry x="20" y="110" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <!-- 箭头2 -->
+    <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryPerimeter=0;strokeColor=#666666;" edge="1" parent="dl_bg" source="prepare" target="train_data">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    
+    <!-- 训练数据 -->
+    <mxCell id="train_data" value="training_data_v2_train.jsonl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;" vertex="1" parent="dl_bg">
+      <mxGeometry x="20" y="180" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="val_data" value="training_data_v2_val.jsonl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;" vertex="1" parent="dl_bg">
+      <mxGeometry x="20" y="245" width="120" height="50" as="geometry"/>
+    </mxCell>
+    
+    <!-- 支持格式 -->
+    <mxCell id="formats" value="docx/xlsx/pdf/txt/md/csv/json/sql..." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF3E0;strokeColor=#E65100;" vertex="1" parent="dl_bg">
+      <mxGeometry x="20" y="315" width="120" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- 数据划分说明 -->
+    <mxCell id="split_info" value="85% 训练 / 15% 验证 (哈希划分)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="dl_bg">
+      <mxGeometry x="10" y="400" width="140" height="30" as="geometry"/>
+    </mxCell>
+    
+    <!-- 模型层 -->
+    <mxCell id="ml_bg" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#388E3C;startSize=30;" vertex="1" parent="1">
+      <mxGeometry x="220" y="100" width="160" height="480" as="geometry"/>
+    </mxCell>
+    <mxCell id="ml_label" value="模型层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="ml_bg">
+      <mxGeometry x="0" y="-10" width="160" height="30" as="geometry"/>
+    </mxCell>
+    
+    <!-- Qwen3-0.6B 基础模型 -->
+    <mxCell id="base_model" value="Qwen3-0.6B (预训练)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;" vertex="1" parent="ml_bg">
+      <mxGeometry x="20" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <!-- 箭头3 -->
+    <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryPerimeter=0;strokeColor=#666666;" edge="1" parent="ml_bg" source="base_model" target="finetune">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    
+    <!-- finetune.py -->
+    <mxCell id="finetune" value="finetune.py (LoRA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;" vertex="1" parent="ml_bg">
+      <mxGeometry x="20" y="110" width="120" height="50" as="geometry"/>
+    </mxCell>
+    
+    <!-- LoRA 配置 -->
+    <mxCell id="lora_config" value="LoRA 配置:&#xa;Rank=4, Alpha=8&#xa;Dropout=0.1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;" vertex="1" parent="ml_bg">
+      <mxGeometry x="20" y="180" width="120" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- LoRA 适配器 -->
+    <mxCell id="lora_adapter" value="lora_adapters/" style="shape=folder;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFE0B2;strokeColor=#E65100;" vertex="1" parent="ml_bg">
+      <mxGeometry x="20" y="260" width="120" height="55" as="geometry"/>
+    </mxCell>
+    
+    <!-- 训练状态 -->
+    <mxCell id="train_state" value="training_state.json&#xa;(恢复训练)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;" vertex="1" parent="ml_bg">
+      <mxGeometry x="20" y="335" width="120" height="45" as="geometry"/>
+    </mxCell>
+    
+    <!-- 训练参数 -->
+    <mxCell id="train_params" value="45,000步 / 256 tokens&#xa;分段训练" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="ml_bg">
+      <mxGeometry x="10" y="400" width="140" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- 训练层 -->
+    <mxCell id="tl_bg" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;startSize=30;" vertex="1" parent="1">
+      <mxGeometry x="400" y="100" width="160" height="480" as="geometry"/>
+    </mxCell>
+    <mxCell id="tl_label" value="推理层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="tl_bg">
+      <mxGeometry x="0" y="-10" width="160" height="30" as="geometry"/>
+    </mxCell>
+    
+    <!-- MLX-LM 服务器 -->
+    <mxCell id="mlx_server" value="MLX-LM Server&#xa;API: /v1/chat/completions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="40" width="120" height="55" as="geometry"/>
+    </mxCell>
+    
+    <!-- base_chatbot.py -->
+    <mxCell id="base_chat" value="base_chatbot.py&#xa;(基类)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="115" width="120" height="45" as="geometry"/>
+    </mxCell>
+    
+    <!-- 箭头到推理模块 -->
+    <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;exitX=0.5;exitY=1;exitPerimeter=0;" edge="1" parent="tl_bg" source="mlx_server" target="base_chat">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    
+    <!-- chat_cli.py -->
+    <mxCell id="cli" value="chat_cli.py&#xa;(命令行)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#616161;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="180" width="120" height="45" as="geometry"/>
+    </mxCell>
+    
+    <!-- chat_gradio.py -->
+    <mxCell id="gradio" value="chat_gradio.py&#xa;(Gradio Web)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#616161;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="240" width="120" height="45" as="geometry"/>
+    </mxCell>
+    
+    <!-- config.py -->
+    <mxCell id="config" value="config.py&#xa;(配置管理)" style="shape=parallelogram;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;perimeter=parallelogramStyle;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="305" width="120" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- response_cleaner.py -->
+    <mxCell id="cleaner" value="response_cleaner.py&#xa;(输出清理)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#D84315;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="365" width="120" height="45" as="geometry"/>
+    </mxCell>
+    
+    <!-- file_searcher.py -->
+    <mxCell id="searcher" value="file_searcher.py&#xa;(实时搜索)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;" vertex="1" parent="tl_bg">
+      <mxGeometry x="20" y="430" width="120" height="45" as="geometry"/>
+    </mxCell>
+    
+    <!-- 用户层 -->
+    <mxCell id="ul_bg" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor;#C2185B;startSize=30;" vertex="1" parent="1">
+      <mxGeometry x="580" y="100" width="180" height="480" as="geometry"/>
+    </mxCell>
+    <mxCell id="ul_label" value="用户接口" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="ul_bg">
+      <mxGeometry x="0" y="-10" width="180" height="30" as="geometry"/>
+    </mxCell>
+    
+    <!-- CLI 终端 -->
+    <mxCell id="cli_term" value="终端命令行&#xa;python chat_cli.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#616161;" vertex="1" parent="ul_bg">
+      <mxGeometry x="30" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    
+    <!-- Gradio Web -->
+    <mxCell id="web_ui" value="Gradio Web 界面&#xa;http://localhost:7860" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;" vertex="1" parent="ul_bg">
+      <mxGeometry x="30" y="105" width="120" height="50" as="geometry"/>
+    </mxCell>
+    
+    <!-- API 集成 -->
+    <mxCell id="api" value="OpenAI 兼容 API&#xa;Dify / 外部应用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;" vertex="1" parent="ul_bg">
+      <mxGeometry x="30" y="170" width="120" height="55" as="geometry"/>
+    </mxCell>
+    
+    <!-- 输出示例 -->
+    <mxCell id="output_ex" value="输出示例:&#xa;查找项目计划文件&#xa;→ 项目计划.docx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#388E3C;" vertex="1" parent="ul_bg">
+      <mxGeometry x="30" y="245" width="120" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- 核心特性 -->
+    <mxCell id="features" value="核心特性:&#xa;• 思考模式清理&#xa;• 输出格式优化&#xa;• 多轮对话支持" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;" vertex="1" parent="ul_bg">
+      <mxGeometry x="30" y="325" width="120" height="80" as="geometry"/>
+    </mxCell>
+    
+    <!-- 依赖环境 -->
+    <mxCell id="env" value="依赖环境:&#xa;mlx-lm, gradio, docx, openpyxl, PyPDF2" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF3E0;strokeColor=#E65100;" vertex="1" parent="ul_bg">
+      <mxGeometry x="30" y="420" width="120" height="55" as="geometry"/>
+    </mxCell>
+    
+    <!-- 跨层连接线 -->
+    <mxCell id="cross1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1976D2;strokeWidth=2;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="src_data" target="base_model">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#388E3C;strokeWidth=2;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="lora_adapter" target="mlx_server">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#616161;strokeWidth=2;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="cli" target="cli_term">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="gradio" target="web_ui">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    
+    <!-- 箭头图例 -->
+    <mxCell id="legend" value="数据流 →" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="400" y="600" width="100" height="25" as="geometry"/>
+    </mxCell>
+    
+    <!-- 版本信息 -->
+    <mxCell id="version" value="Apple Silicon Mac (M1+) | MLX-LM 框架 | LoRA 微调" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+      <mxGeometry x="350" y="625" width="350" height="25" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
